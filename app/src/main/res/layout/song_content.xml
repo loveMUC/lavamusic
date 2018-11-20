@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--@author 石同尘 中央民族大学 计算机科学与技术
+        说明：该布局是一个相对布局，该相对布局里面有两个子布局。
+               第一个子布局也是一个相对布局，里面包含的控件有：歌曲专辑图片丶歌曲名称丶歌手丶
+                                                                上一曲图片丶播放/暂停图片丶
+                                                                 下一曲图片，控件属性设置分析请参考
+                                                                 song.xml文件说明。
+               第二个子布局是一个recyclerview布局，需要事先引入库，它含有许多的相同的子项布局song.xml。-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/mini_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/darker_gray"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/bar_song_album"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/song_album" />
+
+        <TextView
+            android:id="@+id/bar_song_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/bar_song_album"
+            android:text="Love MUC"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/bar_song_singer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp"
+            android:layout_toRightOf="@id/bar_song_album"
+            android:text="s t c"
+            android:textSize="20sp"
+            android:textColor="@android:color/holo_red_dark"/>
+
+        <ImageView
+            android:id="@+id/next"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/next_song"/>
+
+        <ImageView
+            android:id="@+id/play"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/next"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/play_song"/>
+
+        <ImageView
+            android:id="@+id/pre"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/play"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/pre_song"/>
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/mini_bar"
+        android:scrollbars="vertical"/>
+
+</RelativeLayout>

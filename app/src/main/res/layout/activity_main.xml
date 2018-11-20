@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--@author 石同尘 中央民族大学 计算机科学与技术 App启动界面展示-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/me_and_muc_2018_autumn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/muc_autumn_2018"
+        android:scaleType="centerCrop"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="民大最后的秋天"
+        android:textSize="20sp"
+        android:textColor="@android:color/holo_orange_light"/>
+</RelativeLayout>

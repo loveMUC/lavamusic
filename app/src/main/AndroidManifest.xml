@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?><!-- @author 石同尘 中央民族大学 计算机科学与技术 记得获取读取SD卡权限，程序启动，初始化MyApplication -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.lavamusic">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SongListActivity"
+            android:label="音乐列表"></activity>
+        <service android:name=".SongPlayService"
+                  android:process=":song"/>
+
+        <receiver
+            android:name=".SongCompletionReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.lavamusic.song_completion"/>
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

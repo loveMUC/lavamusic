@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--@author 石同尘 中央民族大学 计算机科学与技术
+        说明：该布局为listview布局的子项布局，布局方式为相对布局，指定宽度匹配listview宽度，高80dp。
+              该子项布局内部控件距离子项布局的左内边框15dp长度，距离子项布局的上内边框10dp长度。
+              该子项布局内部控件现均初始化便于调试布局设计
+              该子项布局包含了如下控件：歌曲专辑图片，歌曲名称，歌手，歌曲时长，分割线。
+                                TextView的内容丶内容字体的大小丶颜色根据个人爱好自行选择
+                                <PaddingLeft或者PaddingTop已帮第一个控件设置好了布局>
+
+                歌曲专辑图片：大小-宽60dp，高60dp，距离子项布局左内边框15dp长度，距离子项布局的
+                              上内边框10dp。
+
+                歌曲名称：大小-宽高设为容纳初始化内容即自适应（TextView记得一定要初始化便于调试视图），位于
+                          歌曲专辑图片的右边，距离子项布局上内边框10dp长度，名称若过长，则结尾省略号
+                          表示，最多展示两行文本。
+                歌手：大小-宽高设为容纳初始化内容即自适应，位于歌曲专辑图片右边，歌曲名称下边。
+
+                歌曲时长：大小-宽匹配该子项布局宽度，高度为容纳初始化内容即自适应。先将其与子项布局的下边缘
+                对齐即显示在子项布局的下边缘，然后在水平方向上居中，接着设置距离子项布局下边缘8dp长度，
+                距离子项布局右边缘16dp长度，再设置位于歌曲专辑图片的右边。另外歌曲时长的具体内容显示
+                在控件内部的的右边。
+
+                分割线：大小-宽为适应即匹配子项布局宽度，高1dp，与子项布局下边缘对齐，距离上边最近控件
+                长度2dp。-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:paddingLeft="15dp"
+    android:paddingTop="10dp">
+
+    <ImageView
+        android:id="@+id/song_album"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/song_album"/>
+
+    <TextView
+        android:id="@+id/song_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/song_album"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="Love Muc"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/song_singer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/song_title"
+        android:layout_toRightOf="@id/song_album"
+        android:textColor="@android:color/holo_red_light"
+        android:text="stc"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/song_duration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_toRightOf="@id/song_album"
+        android:gravity="right"
+        android:textColor="@android:color/darker_gray"
+        android:text="00:00"
+        android:textSize="15sp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="2dp"
+        android:background="@color/colorPrimary"/>
+
+</RelativeLayout>
