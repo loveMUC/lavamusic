@@ -93,7 +93,7 @@ public class SongListActivity extends BaseActivity implements OnNextSongListener
         mAdapter=new SongAdapter(mSongList, new OnSongItemClickListener() {
             @Override
             public void play(Song song, int position) throws IOException, RemoteException {
-                clickSongItem(mCurrSong,mCurrIndex);
+                clickSongItem(song,position);
             }
         });//!!!!!!!!!!!!!!!!!!!注意！
         mShowSong.setAdapter(mAdapter);
